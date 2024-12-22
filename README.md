@@ -49,4 +49,4 @@ Aplikacja będzie dostępna pod adresem `http://localhost:8080`.
 
 ## Licencja
 
-Projekt jest dostępny na licencji MIT. Szczegóły znajdują się w pliku `LICENSE`.
+Projekt jest dostępny na licencji MIT.
