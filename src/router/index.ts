@@ -1,26 +1,55 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Home from "../views/HomeView.vue";
+import Register from "../views/Register.vue";
+import Login from "../views/Login.vue";
+import Tasks from "../views/Tasks.vue";
+import store from "../store";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "Home",
+    component: Home,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/register",
+    name: "Register",
+    component: Register,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/tasks",
+    name: "Tasks",
+    component: Tasks,
+    meta: { requiresAuth: true },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+// Middleware ochrony tras
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = store.getters.isAuthenticated;
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next({ name: "Login" });
+  } else if (
+    (to.name === "Login" || to.name === "Register") &&
+    isAuthenticated
+  ) {
+    next({ name: "Tasks" });
+  } else {
+    next();
+  }
 });
 
 export default router;

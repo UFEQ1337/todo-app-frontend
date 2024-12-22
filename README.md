@@ -1,24 +1,52 @@
-# frontend
+# Todo App - Frontend
 
-## Project setup
-```
-npm install
-```
+## Opis projektu
 
-### Compiles and hot-reloads for development
-```
+Todo App to aplikacja do zarządzania listą zadań. Projekt składa się z frontendowej części, która komunikuje się z backendem za pomocą API.
+
+## Funkcje
+
+- Dodawanie nowych zadań
+- Usuwanie zadań
+- Oznaczanie zadań jako ukończone
+- Edytowanie istniejących zadań
+
+## Technologie
+
+- HTML
+- CSS
+- TypeScript
+- Vue.js
+
+## Instalacja
+
+1. Sklonuj repozytorium:
+   ```bash
+   git clone https://github.com/UFEQ1337/todo-app-frontend.git
+   ```
+2. Przejdź do katalogu projektu:
+   ```bash
+   cd todo-app-frontend
+   ```
+3. Zainstaluj zależności:
+   ```bash
+   npm install
+   ```
+
+## Uruchomienie
+
+Aby uruchomić aplikację lokalnie, użyj następującego polecenia:
+
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Aplikacja będzie dostępna pod adresem `http://localhost:8080`.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Autorzy
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Mateusz Popielarz
+
+## Licencja
+
+Projekt jest dostępny na licencji MIT. Szczegóły znajdują się w pliku `LICENSE`.
